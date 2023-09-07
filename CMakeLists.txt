@@ -43,8 +43,6 @@ add_compile_definitions(
 
 string(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
-set(THIRDPARTY_ROOT_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
-set(THIRDPARTY_INCLUDE_DIR "${THIRDPARTY_ROOT_DIR}/include")
 if(MINGW)
 	if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "8")
 		set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/win64")
@@ -64,18 +62,22 @@ elseif(UNIX)
 		set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/linux32")
 	endif()
 endif()
-
 if(MINGW)
 	# hack to force static zlib (but it doesn't mess anything else up...)
 	set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 	list(APPEND LIBS ucrt)
 endif()
 
+# Hack to set include + lib
+set(THIRDPARTY_ROOT_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
+set(THIRDPARTY_INCLUDE_DIR "${THIRDPARTY_ROOT_DIR}/include")
+set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/linux64")
+
 find_package(ZLIB REQUIRED)
 include_directories(${ZLIB_INCLUDE_DIRS})
 list(APPEND LIBS ${ZLIB_LIBRARIES})
 
-find_package(MBEDTLS 2.24.0 REQUIRED)
+find_package(MBEDTLS REQUIRED)
 include_directories(${MBEDTLS_INCLUDE_DIRS})
 list(APPEND LIBS ${MBEDTLS_LIBRARIES})
 

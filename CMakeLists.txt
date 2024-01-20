@@ -43,6 +43,8 @@ add_compile_definitions(
 
 string(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
+set(THIRDPARTY_ROOT_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
+
 if(MINGW)
 	if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "8")
 		set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/win64")
@@ -68,7 +70,6 @@ set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 list(APPEND LIBS ucrt)
 
 # Hack to set include + lib
-set(THIRDPARTY_ROOT_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
 set(THIRDPARTY_INCLUDE_DIR "${THIRDPARTY_ROOT_DIR}/include")
 set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/windows")
 

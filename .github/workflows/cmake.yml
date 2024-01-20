@@ -11,6 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@main
 
+    - run: |
+        mingw64-pkg install zlib
+
     - name: Configure CMake
       run: |
         cmake -B ${{ github.workspace }}/build

@@ -71,7 +71,7 @@ endif()
 # Hack to set include + lib
 set(THIRDPARTY_ROOT_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
 set(THIRDPARTY_INCLUDE_DIR "${THIRDPARTY_ROOT_DIR}/include")
-set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/win64")
+set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/windows")
 
 find_package(ZLIB REQUIRED)
 include_directories(${ZLIB_INCLUDE_DIRS})

@@ -18,11 +18,13 @@ jobs:
         libmbedtls-dev \
         uthash-dev \
         zlib1g-dev \
-        libz-mingw-w64-dev
+        mingw-w64 \
+        libz-mingw-w64-dev \
 
     - name: Configure CMake
       run: |
         cmake -B $(pwd)/build
+
     - name: Build
       run: cmake --build $(pwd)/build --config Release
 

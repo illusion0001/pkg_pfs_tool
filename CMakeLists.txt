@@ -62,11 +62,10 @@ elseif(UNIX)
 		set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/linux32")
 	endif()
 endif()
-if(MINGW)
-	# hack to force static zlib (but it doesn't mess anything else up...)
-	set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
-	list(APPEND LIBS ucrt)
-endif()
+
+# hack to force static zlib (but it doesn't mess anything else up...)
+set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+list(APPEND LIBS ucrt)
 
 # Hack to set include + lib
 set(THIRDPARTY_ROOT_DIR "${CMAKE_SOURCE_DIR}/thirdparty")

@@ -13,10 +13,10 @@ jobs:
 
     - name: Configure CMake
       run: |
-        cmake -B $(pwd)/build
+        cmake -B ${{ github.workspace }}/build
 
     - name: Build
-      run: cmake --build $(pwd)/build --config Release
+      run: cmake --build ${{ github.workspace }}/build --config Release
 
     - name: Upload Artifact
       uses: actions/upload-artifact@main

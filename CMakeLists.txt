@@ -71,13 +71,14 @@ endif()
 # Hack to set include + lib
 set(THIRDPARTY_ROOT_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
 set(THIRDPARTY_INCLUDE_DIR "${THIRDPARTY_ROOT_DIR}/include")
-set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/windows")
+set(THIRDPARTY_LIB_DIR "${THIRDPARTY_ROOT_DIR}/lib/windows") # thirdparty/lib/windows
+set(MBEDTLS_LIBRARIES "${THIRDPARTY_LIB_DIR}")
 
 find_package(ZLIB REQUIRED)
 include_directories(${ZLIB_INCLUDE_DIRS})
 list(APPEND LIBS ${ZLIB_LIBRARIES})
 
-find_package(MBEDTLS REQUIRED)
+# find_package(MBEDTLS REQUIRED)
 include_directories(${MBEDTLS_INCLUDE_DIRS})
 list(APPEND LIBS ${MBEDTLS_LIBRARIES})
 

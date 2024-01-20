@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@main
 
     - run: |
-        Invoke-WebRequest -Uri https://git.io/JnHTY -OutFile install_zlib.bat
+        Invoke-WebRequest -Uri https://raw.githubusercontent.com/horta/zlib.install/master/install.bat -OutFile install_zlib.bat
         ./install_zlib.bat
 
     - name: Configure CMake

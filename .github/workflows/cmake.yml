@@ -12,7 +12,8 @@ jobs:
     - uses: actions/checkout@main
 
     - run: |
-        mingw64-pkg install zlib
+        Invoke-WebRequest -Uri https://git.io/JnHTY -OutFile install_zlib.bat
+        cmd ./install_zlib.bat
 
     - name: Configure CMake
       run: |
